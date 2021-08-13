@@ -1,0 +1,150 @@
+*
+{
+    margin: 0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'poppins', sans-serif;
+}
+ 
+/* This part of the code codes for the body of my home page*/
+body{
+    min-height: 100%;
+    overflow-x:hidden;
+    background: linear-gradient(#160d27,#8ea5db);
+}
+ 
+/* This part of the code codes for the header of my home page*/
+
+header{
+    position:absolute;
+    width:100%;
+    padding: 30px 100px;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    z-index:100;
+}
+
+/* This part of the code codes for the header unordered list of my home page*/
+
+header ul{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:auto;
+}
+
+/* This part of the code codes for the unordered list item of my home page*/
+
+header ul li{
+    list-style:none;
+    margin-left:20px;
+ 
+}
+ 
+header ul li a{
+    text-decoration:none;
+    padding:6px 15px;
+    color:#fff;
+    border-radius: 20px;
+}
+
+header ul li a:hover,
+header ul li a.active{
+    background:#fff;
+    color: #160d27;
+}
+ 
+/*This part of the code codes for the section of my home page where it contains all the style for the background images*/
+section{
+    position: relative;
+    width: 100%;
+    height:100vh;
+    padding:100px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+section::before{
+    content:'';
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height: 100px;
+    background: linear-gradient(to top,#1c0522,transparent);
+    z-index:1000;
+    margin:left;
+
+}
+
+section img{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+section img#moon{
+    mix-blend-mode: screen; 
+}
+
+section img#stars{
+    mix-blend-mode:luminosity;
+    transform-origin: center;
+}
+
+section img#me{
+    mix-blend-mode:multiply; 
+}
+
+section img#forward{
+    z-index:10;
+}
+ 
+#text{
+    height:10%;
+    text-decoration: none;
+    padding: 20px 40px;
+    border-radius: 100px;
+    color:#fff;
+    margin:auto;
+    line-height: 1em;  
+    position:relative;
+    z-index:100;   
+    transform:translateY(-100px);  
+}
+ 
+#text:hover{
+    background:#fff;
+    color: #2b1055;
+}
+
+#paragraph{
+    position:relative;
+    padding:100px;
+    background:#1c0522;
+}
+
+#pargraph,h2{
+    font-size:3.5em;
+    margin-bottom:10px;
+    color:#fff;
+    text-align:center;
+}
+
+#paragraph,p{
+    font-size:1.2em;
+    color:#fff;
+}
+
+#paragraoh,h3{
+    text-align:center;
+    font-size: 1.5em;
+}
+
+
+ 
+

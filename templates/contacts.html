@@ -1,0 +1,39 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={{url_for('static',filename='contactstyles.css')}}>
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <ul>
+            <li><a href ="/">Home</a></li>
+            <li><a href ="/about">About</a></li>
+            <li><a href ="/contacts">About</a></li>
+
+
+        </ul>
+
+    </header>
+
+
+    
+    <div class="margin">
+        <h1 class = "title">Contact</h1>
+        <form id="user_input" action="/message" method="post">
+            <input type="text" id="name" required placeholder="first_name" name="first_name">
+            <input type="text" id="name" required placeholder="last_name" name="last_name">
+            <input type="email" pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*" id= "email" placeholder="email" name="email"><br>
+            <textarea id= message required placeholder="message" rows="5" name="message"></textarea><br>
+            <input type="submit" id="submit" value="send">
+        </form>
+
+
+    </div>
+</body>
+</html>

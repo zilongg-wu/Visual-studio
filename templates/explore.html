@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!--This part of the code is the head, where this will not be displayed out on the web, it tells what the website is connected to, so we can style it-->
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href={{url_for('static',filename='stylesexplore.css')}}>
+        <title>explore</title>
+  
+    </head>
+
+        <!--This part is the body where it will be displayed to the users using my website-->
+        <body>
+
+            <header>
+
+                <ul>
+                    <li><a href ="/">Home</a></li>
+                    <li><a href ="/about">About</a></li>
+                    <li>Contact</li>
+                    <li>Account</li>
+
+                </ul>
+
+            </header>
+
+            <!--This part of the code is where it includes buttons and a table, this allows users to add a new place,description and a image about the famous place they want to add-->
+            <div id="tablearr">
+
+                <table>
+
+                    <tr>
+                        <th>id</th>
+                        <th>Name of Famous Place</th>
+                        <th>Description of famous place</th>
+                        <th>Image</th>
+                        <th>delete?</th>
+                       
+                        
+                    
+                    </tr>
+                    {% for item in results %}
+                    <tr>
+                        
+                        <td>{{ item[0] }}</td>
+                        <td>{{ item[1] }}</td>
+                        <td>{{ item[2] }}</td>
+                    
+                        <td><img src="{{url_for('static',filename='images/'+item[3])}}"></td>
+
+                        <!--Deletes the famous place they want to delete-->
+                        <td>
+
+                            <form action="/delete" method="post">
+                            <input type= "hidden" name="item_name" value="{{item[0]}}">
+                            <input type="submit" value="delete" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure that you would like to delete this famous place?')">
+                            </form>
+                        </td>
+
+                     
+            
+
+                        
+
+
+
+                    {%endfor%}
+                </table>
+            </div>
+
+            <div id ="addpic">
+
+                <!--This code adds the famous place they want to add-->
+                <form action="/add" method="post">
+                <h2>Enter a new place you want to add, 1st box (place) 2nd box(description) 3rd box(image)</h2>
+                <input type="text" name="places" required>
+                <input type="text" name="description"required>
+                <input type="text" name="image" required>
+                <input type="submit" value="add" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you would like to add this famous place? Please check for spelling or grammar errors!!')">
+                </form>
+        
+                <!--This code helps upload the image-->
+                <form id="upload-form" action="{{url_for('upload')}}"method="POST" enctype="multipart/form-data">
+                <input type ="file" name="file" accept="image/*"muitiple>
+                <input type="submit" value="send">
+                </form>
+
+            </div>
+
+        </body>
+
+
+</html>

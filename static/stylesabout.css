@@ -1,0 +1,40 @@
+
+body{
+    background:linear-gradient(#de6262,#ffb88c);
+    min-height:100vh;
+}
+
+#paragra {
+    text-align:center;
+    transform:translateY(150px);
+
+}
+
+
+header ul{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:auto;
+
+}
+
+header ul li{
+    list-style:none;
+    margin:auto;
+}
+
+header ul li a{
+    text-decoration: none;
+    padding:6px 15px;
+    color:white;
+    border-radius:20px;
+
+}
+
+header ul li a:hover,
+header ul li a.active{
+    background:#fff;
+    color: #de6262;
+
+}

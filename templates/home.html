@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!--Here is my head, including what files the web will be styled by-->
+    <head>
+        {% block head %}
+        <title>Explore Famous Places on Earth</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href={{url_for('static',filename='styles.css')}}>
+        <title>{% block Home %}{% endblock %}</title>
+        {% endblock %}
+
+</head>
+<body>
+
+    <!--This part is the header-->
+    <header>
+        
+    <!--List of my nav bar-->
+    <ul>
+        <li><a href="/about">About</a></li>
+        <li><a href='#'>Contact</a></li>
+        <li><a href='#'>Account</a></li>
+    </ul>
+    
+    </header>
+    
+    <!--All pics used to made parallax effect-->
+    <section>
+        <img src="static/images/stars.jpg" id ="stars">
+        <img src ="static/images/me.jpg"id="me">
+        <img src="static/images/mountainsbackwards.jpg" id ="backward">
+        <img src="static/images/mountainforward.jpg" id ="forward">
+        <a href = "/explore"id ="text">EXPLORE FAMOUS PLACES</a>
+        <img src="static/images/moon.jpg" id ="moon">
+        <img src="static/images/birds.jpg" id ="birds">
+
+
+        
+    </section>
+
+    <!--A div with a header 2 and a basic paragraph descriping what is a famous place-->
+    <div id="paragraph" >
+        <h2>What Are Famous Places?</h2>
+        <p>
+            A tourist attraction is a place of interest where tourists visit, typically for its inherent or an exhibited natural or cultural value, 
+            historical significance, natural or built beauty, offering leisure and amusement.Places of natural beauty such as beaches, tropical island 
+            resorts, national parks, mountains, deserts and forests, are examples of traditional tourist attractions which people may visit. <br><br>Cultural tourist 
+            attractions can include historical places, monuments, ancient temples, zoos, aquaria, museums and art galleries, botanical gardens, buildings and 
+            structures (such as forts, castles, libraries, former prisons, skyscrapers, bridges), theme parks and carnivals, living history museums, public art (sculptures, statues, murals), 
+            ethnic enclave communities, historic trains and cultural events. <br><br>Factory tours, industrial heritage, creative art and crafts workshops are the object of cultural niches like industrial tourism and creative tourism. 
+            Many tourist attractions are also landmarks. But sports events such as a soccer game, Formula 1 race or sailing regatta can also attract tourists.<br><br>
+            Tourists' expectations when visiting a particular place are related to several features of the chosen destination: culture, architecture, gastronomy, infrastructure, landscape, events, shopping, etc. 
+            These features attract people to the destination and contribute to the overall experience of the trip. The ultimate primary purpose of attractions is to attract the customer's attention so that they can come to a specific location and explore the various attractions on vacation. <br><br>In the travel and tourism industry, 
+            attractions therefore play a particularly important role as this attracts tourists from all over the world.There are innumerable lists and reviews of tourist attractions. Visitor statistics, cultural significance, beauty or age are used and these always reflect the author's personal assessments. Sometimes it is particularly emphasized that this particular tourist attraction has not yet been in the focus of the international tourism industry.<br><br>
+            Some of the sights are internationally known or target the national or local market. Some attractions are reserved for the local population or are rarely advertised because the main traffic routes and main airports are too far away.
+        </p>
+        <h3><br>If you want to see the famous places click Explore Famous Places Above!!</h3>
+
+    </div>
+
+    <!--Here are some javascript where I used to create the parallax scrolling effect-->
+    <script>
+
+        let stars= document.getElementById('stars');
+        let moon= document.getElementById('moon');
+        let backward= document.getElementById('backward');
+        let text= document.getElementById('text');
+        let front= document.getElementById('front');
+        
+
+
+        // window.addEventListener('scroll',function(event){
+        //     console.log(event);
+        //     let value = window.scrollY;
+        //     stars.style.left = value * 0.2 + 'px';
+        //     moon.style.top = value * 0.22 + 'px';
+        //     backward.style.top = value * 0.15 + 'px';
+        //     forward.style.top = value * 0 + 'px';
+
+        // })
+
+        function  doSomething(value) {
+            stars.style.left = value * 0.6 + 'px';
+            stars.style.transform = `rotate(${value * 0.1}deg)`;
+            moon.style.top = value * 0.3 + 'px';
+            backward.style.top = value * 0.15 + 'px';
+            forward.style.top = value * 0 + 'px';
+
+        }
+
+        let lastKnownScrollPosition = 0;
+        let ticking = false;
+
+        document.addEventListener('scroll', function(e) {
+            lastKnownScrollPosition = window.scrollY;
+
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    doSomething(lastKnownScrollPosition);
+                    ticking = false;
+                });
+
+                ticking = true;
+            }
+        });
+    </script>
+    
+
+
+</body>   
+        <!--Here's the footer where i added a copy right symbol along with who created the website -->
+        {% block footer %}
+        <footer>
+            &copy; Copyright <em id="date">Zilong Wu Website created on the 25th of May 2021</em>
+        </footer>
+        {% endblock %}
+
+</html>

@@ -1,0 +1,69 @@
+/*This code below helps style the web page of my explore.html*/
+
+body{
+  background: linear-gradient(#ffafbd,#ffc3a0);
+  min-height: 100vh; 
+}
+
+table {
+    margin:auto;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 75%;
+  }
+  
+  td, th {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid black;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+/*Styling for the img*/
+  img{
+      width:200px;
+      height:150px;
+  }
+  
+header ul{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:auto;
+}
+
+header ul li{
+  list-style:none;
+  margin:auto;
+}
+
+header ul li a{
+  text-decoration: none;
+  padding:6px 15px;
+  color:white;
+  border-radius:20px;
+}
+
+header ul li a:hover,
+header ul li a.active{
+  background:#fff;
+  color: #ffafbd;
+
+}
+
+#tablearr{
+  padding-top: 5%;
+
+}
+
+#addpic,h2{
+  text-align:center;
+}
+
+
+
+  
+  
