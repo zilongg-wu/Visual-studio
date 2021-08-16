@@ -84,6 +84,23 @@ def delete():
         get_db().commit()
     return redirect('/explore')
 
+#The purpose of this route is to sort famous places in continents
+@app.route('/Continent/<int:id>')
+def continent(id):
+    cursor = get_db().cursor()   
+    sql = "SELECT contents.id,contents.Name,contents.description,contents.filename,continent.continentname FROM contents JOIN continent ON contents.Continent=continent.id WHERE contents.Continent=? "
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    cursor = get_db().cursor()
+    sql = "SELECT continent.id,continent.continentname FROM continent "
+    cursor.execute(sql)
+    Continent= cursor.fetchall()
+    return render_template("continent.html")
+
+
+
+
+
 @app.route("/contacts")
 def contact():
     return render_template("contacts.html")
