@@ -84,7 +84,7 @@ def delete():
         get_db().commit()
     return redirect('/explore')
 
-#The purpose of this route is to sort famous places in continents
+#The purpose of this route is to sort famous places in continents, e.g. europe
 @app.route('/Continent/<int:id>')
 def continent(id):
     cursor = get_db().cursor()   
